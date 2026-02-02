@@ -1,106 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>4 years 🤍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Anniversary ❤️</title>
 
 <style>
 body{
 margin:0;
+background:linear-gradient(135deg,#ffd6e8,#d6f0ff);
 font-family:sans-serif;
-background:linear-gradient(135deg,#ffd6e7,#d6e8ff);
 display:flex;
 justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-.box{
-max-width:380px;
-width:100%;
-padding:20px;
+.card{
+background:white;
+border-radius:20px;
+width:300px;
+padding:15px;
 text-align:center;
-}
-
-audio{
-width:100%;
-margin-bottom:20px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
 }
 
 .slider{
 position:relative;
-overflow:hidden;
-border-radius:20px;
 }
 
-.slides{
-display:flex;
-transition:.4s;
-}
-
-.slides img{
+.slider img{
 width:100%;
-flex-shrink:0;
+border-radius:15px;
+display:none;
 }
 
-.btn{
+.slider img.active{
+display:block;
+}
+
+.arrow{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
+font-size:25px;
 background:white;
-border:none;
-font-size:20px;
-padding:6px 10px;
 border-radius:50%;
+padding:5px 10px;
+cursor:pointer;
 }
 
-.left{left:10px;}
-.right{right:10px;}
+.left{left:5px;}
+.right{right:5px;}
 
-p{
-background:white;
-padding:15px;
-border-radius:15px;
-margin-top:15px;
-font-size:14px;
-line-height:1.6;
+audio{
+width:100%;
+margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="card">
+
+<h3>สุขสันต์วันครบรอบนะ ❤️</h3>
 
 <audio controls>
-<source src="song.mp3">
+<source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <div class="slider">
-<button class="btn left" onclick="move(-1)">‹</button>
 
-<div class="slides" id="slides">
-<img src="IMG_0444.jpeg">
-<img src="IMG_2703.png">
+<img src="IMG_2703.png" class="active">
 <img src="IMG_2704.png">
 <img src="IMG_2705.png">
-</div>
 
-<button class="btn right" onclick="move(1)">›</button>
+<div class="arrow left" onclick="prev()">‹</div>
+<div class="arrow right" onclick="next()">›</div>
+
 </div>
 
 <p>
-วันนี้เป็นวันครบรอบ 4 ปีแย้วน้าาา ดีใจมากก ที่ผ่านมา4ปีแล้วเราก็ยังได้ครบรอบกับคนเดิมม แล้วก็จะครบรอบกันไปแบบนี้เป็นร้อยๆปีเลยย ปีนี้อะไรๆหลายหย่างอาจไม่เป็นใจ แต่ต่อให้วันนี้มันจะไม่มีอะไรเลย มันก็เป็นวันที่พิเศษสำหรับเราที่สุดเลย ได้อยู่กับเอง หัวเราะกันในวันที่ไม่มีอะไรให้หัวเราะ ดีสุดๆเลยย ปีนี้ขอให้เราสองคนสมหวังในสิ่งที่เราหวังกันมาตลอดนะะ ขอให้อ้วนอยู่กับเราแบบนี้ไปตลอดเลยย เองจะมีเราเดินจับมือกับเอง หัวเราะไปกับเอง ร้องไห้ไปกับเองทุกวันเลย เราจะเป็นคนเดิมเสมอ เป็นคนที่เองสามารถซบในวันที่ไม่ไหวได้เสมอ เราผ่านกันมาขนาดนี้ มันไม่ง่ายเลย แต่ผ่านไปด้วยกันอีกนะ ทุกๆปัญหาเลยย ผ่านไปด้วยนะะ รักเองที่สุดด และจะรักมากขึ้นทุกๆวัน จะดูแลเด็กน้อยคนนี้ให้เหมือนคำพูดวันแรกที่ขอเองเป็นแฟนว่า เราจะดูแลเองให้ดีที่สุด 🤍🎀🌟
+อยู่ด้วยกันไปนานๆนะ  
+รักมากจริงๆ ❤️
 </p>
 
 </div>
 
 <script>
-let i=0;
-function move(n){
-const s=document.getElementById("slides");
-i+=n;
-if(i<0)i=3;
-if(i>3)i=0;
-s.style.transform="translateX("+(-i*100)+"%)";
+let index=0;
+let imgs=document.querySelectorAll(".slider img");
+
+function show(){
+imgs.forEach(i=>i.classList.remove("active"));
+imgs[index].classList.add("active");
+}
+
+function next(){
+index=(index+1)%imgs.length;
+show();
+}
+
+function prev(){
+index=(index-1+imgs.length)%imgs.length;
+show();
 }
 </script>
 
