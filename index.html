@@ -59,17 +59,9 @@ z-index:5;
 .left{left:5px;}
 .right{right:5px;}
 
-#play{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:40px;
-background:white;
-border-radius:50%;
-padding:10px 18px;
-z-index:20;
-cursor:pointer;
+audio{
+width:100%;
+margin:10px 0;
 }
 </style>
 </head>
@@ -80,11 +72,8 @@ cursor:pointer;
 
 <h3>Happy Anniversary 🤍</h3>
 
-<div style="position:relative">
-
-<audio id="bgm" src="song.mp3" playsinline></audio>
-
-<div id="play" onclick="playMusic()">▶️</div>
+<!-- ✅ native audio = Safari เล่นได้แน่นอน -->
+<audio src="song.mp3" controls playsinline></audio>
 
 <div class="slider">
 
@@ -103,17 +92,9 @@ cursor:pointer;
 
 </div>
 
-</div>
-
 <script>
 let index=0;
 let imgs=document.querySelectorAll(".slider img");
-let bgm=document.getElementById("bgm");
-
-function playMusic(){
-bgm.play();
-document.getElementById("play").style.display="none";
-}
 
 function show(){
 imgs.forEach(i=>i.classList.remove("active"));
