@@ -72,6 +72,7 @@ margin-top:5px;
 </head>
 
 <body>
+<audio id="song" src="song.mp3"></audio>
 
 <div class="card">
 
@@ -95,7 +96,7 @@ cursor:pointer;
 ">▶️</div>
 
 <div class="slider">
-<div class="play" onclick="next()">▶️</div>
+<div class="play" onclick="playSong()">▶</div>
 
 <img src="IMG_2703.png" class="active">
 <img src="IMG_2704.png">
@@ -142,3 +143,10 @@ show();
 
 </body>
 </html>
+<script>
+function playSong(){
+ const audio = document.getElementById("song");
+ audio.volume = 1;
+ audio.play();
+}
+</script>
