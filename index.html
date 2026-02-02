@@ -27,12 +27,17 @@ box-shadow:0 0 15px rgba(0,0,0,.2);
 .slider{
 position:relative;
 margin-top:10px;
+height:420px;
+overflow:hidden;
 }
 
 .slider img{
 width:100%;
 border-radius:15px;
 display:none;
+position:absolute;
+top:0;
+left:0;
 }
 
 .slider img.active{
@@ -48,10 +53,24 @@ background:white;
 border-radius:50%;
 padding:5px 10px;
 cursor:pointer;
+z-index:5;
 }
 
 .left{left:5px;}
 .right{right:5px;}
+
+#play{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:40px;
+background:white;
+border-radius:50%;
+padding:10px 18px;
+z-index:20;
+cursor:pointer;
+}
 </style>
 </head>
 
@@ -65,18 +84,7 @@ cursor:pointer;
 
 <audio id="bgm" src="song.mp3" playsinline></audio>
 
-<div id="play" onclick="playMusic()" style="
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:40px;
-background:white;
-border-radius:50%;
-padding:10px 18px;
-z-index:10;
-cursor:pointer;
-">▶️</div>
+<div id="play" onclick="playMusic()">▶️</div>
 
 <div class="slider">
 
@@ -90,10 +98,10 @@ cursor:pointer;
 </div>
 
 <p style="font-size:13px">
-
 วันนี้เป็นวันครบรอบ 4 ปีแย้วน้าาา ดีใจมากก...
-
 </p>
+
+</div>
 
 </div>
 
